@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,9 @@ namespace Entity_Framework練習
         public AddForm()
         {
             InitializeComponent();
+            var context = new ProductsModel();
+            var num = (context.ProductTable.Count()+1).ToString();
+            textBox1.Text = "P" + num.PadLeft(3, '0');
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,7 +49,9 @@ namespace Entity_Framework練習
 
         private void ClearTextBoxes()
         {
-            textBox1.Clear();
+            var context = new ProductsModel();
+            var num = (context.ProductTable.Count() + 1).ToString();
+            textBox1.Text = "P" + num.PadLeft(3, '0');
             textBox2.Clear();
             textBox3.Clear();
             textBox4.Clear();

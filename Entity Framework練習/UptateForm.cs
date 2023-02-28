@@ -9,6 +9,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Entity_Framework練習
 {
@@ -23,7 +24,7 @@ namespace Entity_Framework練習
         {
             var result = comboBox1.Text.ToString();
             var context = new ProductsModel();
-            var list = context.ProductTable.SingleOrDefault((X) => X.ProductID == result);
+            var list = context.ProductTable.SingleOrDefault((x) => x.ProductID== result);
             textBox1.Text = list.ProductID;
             textBox2.Text = list.ProductName;
             textBox3.Text = list.Amount.ToString();
@@ -35,7 +36,7 @@ namespace Entity_Framework練習
         {
             // TODO: 這行程式碼會將資料載入 'productDataSet4.ProductTable' 資料表。您可以視需要進行移動或移除。
             this.productTableTableAdapter.Fill(this.productDataSet4.ProductTable);
-
+        
         }
 
         private void button1_Click(object sender, EventArgs e)
